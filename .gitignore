@@ -1,23 +1,68 @@
+# ignore local configuration file and folders
+/.DS_Store
+/.env
+/wp-config-local.php
+.lando.yml
+/wp-cli.yml
+/wordpress/.htaccess
+/wordpress/wp-config-local.php
+/wordpress/wp-content/debug.log
+
 # ignore everything in the root except the "wp-content" directory.
 !wp-content/
 
 # ignore everything in the "wp-content" directory, except:
 # "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
+/wordpress/wp-content/*
+!/wordpress/wp-content/mu-plugins/
+!/wordpress/wp-content/plugins/
+!/wordpress/wp-content/themes/
 
 # ignore these plugins
-wp-content/plugins/hello.php
+/wordpress/wp-content/plugins/hello.php
 
 # ignore specific themes
-wp-content/themes/twenty*/
+/wordpress/wp-content/themes/twenty*/
+
+# Standard Wordpress files and folders:
+/wordpress/vendor/
+/wordpress/composer.json
+/wordpress/index.php
+/wordpress/license.txt
+/wordpress/readme.html
+/wordpress/wp-activate.php
+/wordpress/wp-admin/
+/wordpress/wp-blog-header.php
+/wordpress/wp-comments-post.php
+/wordpress/wp-config-sample.php
+/wordpress/wp-content/index.php
+/wordpress/wp-content/plugins/index.php
+/wordpress/wp-content/themes/index.php
+/wordpress/wp-cron.php
+# If require comment /wordpress/wp-includes/
+/wordpress/wp-includes/
+/wordpress/wp-links-opml.php
+/wordpress/wp-load.php
+/wordpress/wp-login.php
+/wordpress/wp-mail.php
+/wordpress/wp-settings.php
+/wordpress/wp-signup.php
+/wordpress/wp-trackback.php
+/wordpress/xmlrpc.php
+/wordpress/wp-config.php
+/wordpress/*.conf
+wordpress/wp-content/advanced-cache.php
+/wordpress/wp-content/w3tc-config/
+# User uploaded and system generated files.
+/wordpress/wp-content/cache/
+/wordpress/wp-content/uploads/
+/wordpress/wp-content/debug.log
 
 # ignore node dependency directories
 node_modules/
 
-# ignore log files and databases
+# ignore log files, databases and composer packages
+/vendor/
 *.log
 *.sql
 *.sqlite
