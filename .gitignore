@@ -9,7 +9,7 @@
 /wordpress/wp-content/debug.log
 
 # ignore everything in the root except the "wp-content" directory.
-!wp-content/
+!/wordpress/wp-content/
 
 # ignore everything in the "wp-content" directory, except:
 # "mu-plugins", "plugins", "themes" directory
@@ -20,6 +20,7 @@
 
 # ignore these plugins
 /wordpress/wp-content/plugins/hello.php
+/wordpress/wp-content/plugins/akismet/
 
 # ignore specific themes
 /wordpress/wp-content/themes/twenty*/
