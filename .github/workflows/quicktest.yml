@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: [ '7.4' ]
+        php: [ '8.1' ]
         phpcs_version: [ 'dev-master' ]
 
     steps:
