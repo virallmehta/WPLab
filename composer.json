@@ -43,7 +43,7 @@
       "allow-plugins": {
         "composer": true,
         "dealerdirect/phpcodesniffer-composer-installer": true,
-        "roots/wordpress-core-installer": true
+        "johnpbloch/wordpress-core-installer": true
       }
     },
     "scripts": {
