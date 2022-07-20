@@ -54,9 +54,9 @@ jobs:
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v2
 
-      # - name: Lint PHP files against parse errors
-      #   if: ${{ matrix.phpcs_version == 'dev-master' }}
-      #   run: composer lint-ci
+      - name: Lint PHP files against parse errors
+        if: ${{ matrix.phpcs_version == 'dev-master' }}
+        run: composer lint-ci
 
       - name: Run PHPCS checks
         continue-on-error: true
