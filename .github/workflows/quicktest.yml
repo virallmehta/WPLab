@@ -19,51 +19,51 @@ on:
     #       - safari
 
 jobs:
-  quick-tests:
-    name: QTest - PHP ${{ matrix.php }} on PHPCS ${{ matrix.phpcs_version }}
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php: [ '8.1' ]
-        phpcs_version: [ 'dev-master' ]
+  # quick-tests:
+  #   name: QTest - PHP ${{ matrix.php }} on PHPCS ${{ matrix.phpcs_version }}
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       php: [ '8.1' ]
+  #       phpcs_version: [ 'dev-master' ]
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
       
-      # On stable PHPCS versions, allow for PHP deprecation notices.
-      # Unit tests don't need to fail on those for stable releases where those issues won't get fixed anymore.
-      - name: Setup ini config
-        id: set_ini
-        run: |
-          if [ "${{ matrix.phpcs_version }}" != "dev-master" ]; then
-            echo '::set-output name=PHP_INI::error_reporting=E_ALL & ~E_DEPRECATED, display_errors=On'
-          else
-            echo '::set-output name=PHP_INI::error_reporting=-1, display_errors=On'
-          fi
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          ini-values: ${{ steps.set_ini.outputs.PHP_INI }}
-          coverage: none
+  #     # On stable PHPCS versions, allow for PHP deprecation notices.
+  #     # Unit tests don't need to fail on those for stable releases where those issues won't get fixed anymore.
+  #     - name: Setup ini config
+  #       id: set_ini
+  #       run: |
+  #         if [ "${{ matrix.phpcs_version }}" != "dev-master" ]; then
+  #           echo '::set-output name=PHP_INI::error_reporting=E_ALL & ~E_DEPRECATED, display_errors=On'
+  #         else
+  #           echo '::set-output name=PHP_INI::error_reporting=-1, display_errors=On'
+  #         fi
+  #     - name: Set up PHP
+  #       uses: shivammathur/setup-php@v2
+  #       with:
+  #         php-version: ${{ matrix.php }}
+  #         ini-values: ${{ steps.set_ini.outputs.PHP_INI }}
+  #         coverage: none
 
-      - name: Set PHPCS version
-        run: composer require squizlabs/php_codesniffer:"${{ matrix.phpcs_version }}" --no-update --no-scripts --no-interaction
+  #     - name: Set PHPCS version
+  #       run: composer require squizlabs/php_codesniffer:"${{ matrix.phpcs_version }}" --no-update --no-scripts --no-interaction
 
-      - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+  #     - name: Install Composer dependencies
+  #       uses: ramsey/composer-install@v2
 
-      # - name: Lint PHP files against parse errors
-      #   if: ${{ matrix.phpcs_version == 'dev-master' }}
-      #   run: composer lint-ci
+  #     # - name: Lint PHP files against parse errors
+  #     #   if: ${{ matrix.phpcs_version == 'dev-master' }}
+  #     #   run: composer lint-ci
 
-      - name: Run PHPCS checks
-        continue-on-error: true
-        run: vendor/bin/phpcs wordpress/wp-content/plugins/workflowtest/ --report-full --report-checkstyle=./phpcs-report.xml
+  #     - name: Run PHPCS checks
+  #       continue-on-error: true
+  #       run: vendor/bin/phpcs wordpress/wp-content/plugins/workflowtest/ --report-full --report-checkstyle=./phpcs-report.xml
 
-      # - name: Run unit tests
-      #   run: composer run-tests
+  #     # - name: Run unit tests
+  #     #   run: composer run-tests
   check-cs:
     name: rphpcs-wordpress (github-check)
     runs-on: ubuntu-latest
