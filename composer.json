@@ -39,6 +39,13 @@
           ]
         }
     },
+    "config": {
+      "allow-plugins": {
+        "composer": true,
+        "dealerdirect/phpcodesniffer-composer-installer": true,
+        "roots/wordpress-core-installer": true
+      }
+    },
     "scripts": {
       "lint": [
         "@php ./vendor/php-parallel-lint/php-parallel-lint/parallel-lint . -e php --show-deprecated --exclude vendor --exclude .git"
