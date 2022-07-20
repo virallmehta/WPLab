@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="3.7.2">
+<file name="/Users/viralmehta/Sites/wplab/wordpress/wp-content/plugins/workflowtest/workflowtest.php">
+ <error line="2" column="1" severity="error" message="You must use &quot;/**&quot; style comments for a file comment" source="PEAR.Commenting.FileComment.WrongStyle"/>
+</file>
+</checkstyle>
+
