@@ -39,11 +39,6 @@
           ]
         }
     },
-    "config": {
-      "allow-plugins": {
-        "dealerdirect/phpcodesniffer-composer-installer": false
-      }
-    },
     "scripts": {
       "lint": [
         "@php ./vendor/php-parallel-lint/php-parallel-lint/parallel-lint . -e php --show-deprecated --exclude vendor --exclude .git"
