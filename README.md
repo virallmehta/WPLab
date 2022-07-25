@@ -1,2 +1,2 @@
 # WPLab
-WordPress Plugin and Theme development using GitHub Action
+WordPress Plugin, Theme development with PHPCS, WordPress Coding Standard and GitHub Action
