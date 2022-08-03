@@ -62,6 +62,10 @@ jobs:
         continue-on-error: true
         run: vendor/bin/phpcs wordpress/wp-content/plugins/workflowtest/ --report-full --report-checkstyle=./phpcs-report.xml
 
+      - name: Run WPCS checks
+        continue-on-error: true
+        run: /vendor/squizlabs/php_codesniffer/bin/phpcs --standard=WordPress wordpress/wp-content/plugins/workflowtest/
+      
       # - name: Run unit tests
       #   run: composer run-tests
   

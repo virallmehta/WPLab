@@ -22,3 +22,5 @@ Version: 1.0.0
 Author URI: http://wplab.test/
 Summary: Define the WordPress-specific global variables.
 */
+
+$foo = ['bar'];
