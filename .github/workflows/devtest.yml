@@ -64,7 +64,7 @@ jobs:
 
       - name: Run WPCS checks
         continue-on-error: true
-        run: /vendor/squizlabs/php_codesniffer/bin/phpcs --standard=WordPress wordpress/wp-content/plugins/workflowtest/
+        run: vendor/squizlabs/php_codesniffer/bin/phpcs wordpress/wp-content/plugins/workflowtest/ --standard=WordPress 
       
       # - name: Run unit tests
       #   run: composer run-tests
